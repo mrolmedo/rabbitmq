@@ -1,0 +1,25 @@
+# templates/02_rabbitmq-user.yaml
+apiVersion: rabbitmq.com/v1beta1
+kind: User
+metadata:
+  name: fleet-provisioned-user
+  annotations:
+    # 1. Hook Phase: Run after installation
+    "helm.sh/hook": "post-install"
+    # 2. Hook Weight: Ensure this runs late (or in a specific order)
+    "helm.sh/hook-weight": "11"
+    "helm.sh/hook-delete-policy": before-hook-creation
+  # The namespace will be overridden by the targetCustomizations setting: rabbitmq-app
+spec:
+  name: fleet-api-user
+  
+  # Auto-generate a strong password and store it in a Secret
+  autoGeneratePassword: true
+  
+  tags:
+    - administrator
+    - management
+    
+  # Link this user to the cluster deployed above
+  rabbitmqClusterReference:
+    name: fleet-mq-cluster
