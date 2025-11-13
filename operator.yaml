@@ -1,0 +1,24 @@
+# fleet.yaml
+defaultNamespace: rabbitmq-system
+
+# The 'helm' section is used to deploy the RabbitMQ Cluster Operator via its chart.
+helm:
+  # The chart repository where the operator lives
+  repo: https://rabbitmq.github.io/helm-charts
+  # The name of the chart
+  chart: rabbitmq-cluster-operator
+  # Recommended version to pin the deployment
+  version: 2.3.0
+  # The operator is installed into the 'rabbitmq-system' namespace (defaultNamespace)
+  releaseName: rabbitmq-operator
+  
+# The 'targetCustomizations' section is used to deploy the Custom Resources (Cluster and User)
+# into a different, dedicated namespace (e.g., where your applications run).
+targetCustomizations:
+- name: deploy-rabbitmq-app-resources
+  helm:
+    # Use an empty chart or just point to the manifests directory. 
+    # Since we are using raw manifests in 'templates', we don't need a specific chart here.
+    releaseName: rabbitmq-app
+  # Change the namespace for all files found in the 'templates/' directory
+  namespace: rabbitmq-app
