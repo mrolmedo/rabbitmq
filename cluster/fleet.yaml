@@ -1,0 +1,2 @@
+# fleet.yaml
+defaultNamespace: rabbitmq-system
