@@ -1,0 +1,20 @@
+apiVersion: rabbitmq.com/v1beta1
+kind: RabbitmqCluster
+metadata:
+  name: fleet-mq-cluster
+  # The namespace will be overridden by the targetCustomizations setting: rabbitmq-app
+spec:
+  replicas: 1
+  image: "rabbitmq:3.13.0-management"
+  resources:
+    limits:
+      cpu: "1"
+      memory: 1Gi
+  # Recommended: Enable the management plugin for web UI access
+  override:
+    service:
+      spec:
+        ports:
+          - name: http
+            port: 15672
+            targetPort: 15672
