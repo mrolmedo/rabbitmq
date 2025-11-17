@@ -1,13 +1,28 @@
-defaultNamespace: rabbitmq-system
+# rabbitmq-operator/fleet.yaml
 
-# Define the Helm charts to be deployed
-# your-gitops-repo/rabbitmq-minimal/fleet.yaml
+# The default namespace to be applied to resources in this bundle.
+namespace: rabbitmq-system
 
-# Configuration for deploying the RabbitMQ Cluster Operator Helm chart
-
+# Configuration for deploying an external Helm chart
 helm:
-  # Using the Bitnami chart for the Operator
-  chart: bitnami/rabbitmq-cluster-operator
+  # 1. The URL of the public Helm repository (Bitnami)
   repo: https://charts.bitnami.com/bitnami
-  # No special values are typically needed for the Operator deployment itself.
-
+  
+  # 2. The name of the chart within that repository
+  chart: rabbitmq-cluster-operator
+  
+  # 3. The name of the Helm release that will be created on the target cluster
+  releaseName: rabbitmq-cluster-operator
+  
+  # 4. Optional: Override default chart values
+  values:
+    # Example: Set the desired replica count for the operator itself
+    clusterOperator:
+      replicaCount: 1
+      resources:
+        limits:
+          cpu: 100m
+          memory: 256Mi
+  
+  # This option is useful to ensure the namespace is created if it doesn't exist
+  createNamespace: true
