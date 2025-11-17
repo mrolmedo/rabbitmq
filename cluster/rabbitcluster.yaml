@@ -1,20 +1,26 @@
+# your-gitops-repo/rabbitmq-minimal/rabbitmq-cluster-cr.yaml
+
 apiVersion: rabbitmq.com/v1beta1
 kind: RabbitmqCluster
 metadata:
-  name: fleet-mq-cluster
-  # The namespace will be overridden by the targetCustomizations setting: rabbitmq-app
+  name: rabbitmq-minimal-node
+  namespace: rabbitmq-system # Must be the same as the Operator's namespace
 spec:
-  replicas: 1
-  image: "rabbitmq:3.13.0-management"
+  # 1. Single Replica Configuration
+  replicas: 1 
+  
+  # 2. No Storage/Persistence Configuration
+  # The 'storage: 0Gi' value is used to explicitly disable persistence
+  # for the StatefulSet managed by the Operator.
+  persistence:
+    storageClassName: "" # Ensure this is empty/not set if persistence is disabled
+    storage: 0Gi 
+    
+  # Minimal resource requests (adjust as needed for your environment)
   resources:
-    limits:
-      cpu: "1"
+    requests:
+      cpu: 500m
       memory: 1Gi
-  # Recommended: Enable the management plugin for web UI access
-  override:
-    service:
-      spec:
-        ports:
-          - name: http
-            port: 15672
-            targetPort: 15672
+    limits:
+      cpu: 1
+      memory: 2Gi
