@@ -1,32 +1,13 @@
 defaultNamespace: rabbitmq-system
 
 # Define the Helm charts to be deployed
-charts:
-  # 1. RabbitMQ Cluster Operator
-  - name: rabbitmq-cluster-operator
-    repo: https://rabbitmq.github.io/cluster-operator/charts/
-    # ⚠️ IMPORTANT: Choose a version compatible with Kubernetes v1.30.
-    # The version numbers below are placeholders; check the official chart documentation.
-    version: 2.1.0 # 👈 Replace with the official, tested version for K8s 1.30
-    namespace: rabbitmq-system
-    
-    # Values to pass to the Cluster Operator Helm chart
-    values:
-      # Example: Ensure the operator's image uses a compatible version
-      image:
-        repository: rabbitmq/cluster-operator
-        tag: 2.1.0 # Match the chart version or a known compatible tag
+# your-gitops-repo/rabbitmq-minimal/fleet.yaml
 
-  # 2. RabbitMQ Messaging Topology Operator
-  - name: rabbitmq-messaging-topology-operator
-    repo: https://rabbitmq.github.io/messaging-topology-operator/charts/
-    # ⚠️ IMPORTANT: Choose a version compatible with Kubernetes v1.30.
-    version: 1.12.0 # 👈 Replace with the official, tested version for K8s 1.30
-    namespace: rabbitmq-system
-    
-    # Values to pass to the Topology Operator Helm chart
-    values:
-      # Example: Ensure the operator's image uses a compatible version
-      image:
-        repository: rabbitmq/messaging-topology-operator
-        tag: 1.12.0 # Match the chart version or a known compatible tag
+# Configuration for deploying the RabbitMQ Cluster Operator Helm chart
+
+helm:
+  # Using the Bitnami chart for the Operator
+  chart: bitnami/rabbitmq-cluster-operator
+  repo: https://charts.bitnami.com/bitnami
+  # No special values are typically needed for the Operator deployment itself.
+
