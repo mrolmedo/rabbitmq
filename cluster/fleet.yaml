@@ -17,7 +17,7 @@ dependsOn:
   #
   #     opni-fleet-examples-fleets-opni-ui-plugin-operator-crd becomes
   #     opni-fleet-examples-fleets-opni-ui-plugin-opera-021f7
-  - name: one-multi-cluster-hello-world
+  
 
   # Select bundles to depend on based on their label.
   - selector:
