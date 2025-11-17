@@ -1,7 +1,7 @@
 # fleet.yaml
 defaultNamespace: rabbitmq-system
 dependsOn:
-
+  - name: rabbitmq-operator
   # Format:
   #     <GITREPO-NAME>-<BUNDLE_PATH> with all path separators replaced by "-"
   #
@@ -20,5 +20,5 @@ dependsOn:
   
 
   # Select bundles to depend on based on their label.
-  - selector:
-      - name: rabbitmq-operator
+ 
+      
