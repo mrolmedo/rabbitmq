@@ -3,7 +3,7 @@
 apiVersion: rabbitmq.com/v1beta1
 kind: RabbitmqCluster
 metadata:
-  name: rabbitmq-minimal-node
+  name: fleet-mq-cluster
   namespace: rabbitmq-system # Must be the same as the Operator's namespace
 spec:
   # 1. Single Replica Configuration
