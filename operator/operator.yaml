@@ -2740,4 +2740,4 @@ webhooks:
     - superstreams
   sideEffects: None
 dependsOn:
-  - name: rabbit-cert
+  - name: rabbitmq-cert
