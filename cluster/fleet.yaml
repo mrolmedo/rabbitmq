@@ -1,7 +1,7 @@
 # fleet.yaml
 defaultNamespace: rabbitmq-system
 dependsOn:
-  - name: rabbitmq-topology
+  - name: rabbitmq-operator
   # Format:
   #     <GITREPO-NAME>-<BUNDLE_PATH> with all path separators replaced by "-"
   #
