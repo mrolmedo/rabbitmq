@@ -12,7 +12,6 @@ spec:
   # 2. No Storage/Persistence Configuration
   # The 'storage: 0Gi' value is used to explicitly disable persistence
   # for the StatefulSet managed by the Operator.
-  persistence:
-    storageClassName: "" # Ensure this is empty/not set if persistence is disabled
+
   
     
