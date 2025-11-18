@@ -2739,5 +2739,3 @@ webhooks:
     resources:
     - superstreams
   sideEffects: None
-dependsOn:
-  - name: rabbitmq-cert
