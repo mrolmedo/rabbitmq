@@ -13,9 +13,6 @@ metadata:
 spec:
   name: fleet-api-user
   
-  # Auto-generate a strong password and store it in a Secret
-  autoGeneratePassword: true
-  
   tags:
     - administrator
     - management
