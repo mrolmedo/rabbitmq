@@ -14,13 +14,5 @@ spec:
   # for the StatefulSet managed by the Operator.
   persistence:
     storageClassName: "" # Ensure this is empty/not set if persistence is disabled
-    storage: 0Gi 
+  
     
-  # Minimal resource requests (adjust as needed for your environment)
-  resources:
-    requests:
-      cpu: 500m
-      memory: 1Gi
-    limits:
-      cpu: 1
-      memory: 2Gi
