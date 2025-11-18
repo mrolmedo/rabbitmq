@@ -1,0 +1,3 @@
+defaultNamespace: rabbitmq-system
+dependsOn:
+  - name: rabbitmq-cert
