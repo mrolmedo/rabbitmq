@@ -11,8 +11,6 @@ metadata:
     "helm.sh/hook-delete-policy": before-hook-creation
   # The namespace will be overridden by the targetCustomizations setting: rabbitmq-app
 spec:
-  name: fleet-api-user
-  
   tags:
     - administrator
     - management
