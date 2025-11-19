@@ -11,7 +11,7 @@ metadata:
     "helm.sh/hook-delete-policy": before-hook-creation
 spec:
   vhost: "/"
-  user: "guest"
+  user: "fleet-provisioned-user"
   # Set up the permissions for the 'guest' user
   permissions:
     configure: ".*"
