@@ -11,6 +11,8 @@ metadata:
     "meta.helm.sh/release-name": rabbitmq-cluster
     "meta.helm.sh/release-namespace": rabbitmq-system
   # The namespace will be overridden by the targetCustomizations setting: rabbitmq-app
+  labels: 
+    app.kubernetes.io/managed-by: Helm
 spec:
   tags:
     - administrator
