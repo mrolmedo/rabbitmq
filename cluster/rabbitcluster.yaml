@@ -8,7 +8,7 @@ metadata:
 spec:
   # 1. Single Replica Configuration
   replicas: 1 
-  
+  storage: 0
   # 2. No Storage/Persistence Configuration
   # The 'storage: 0Gi' value is used to explicitly disable persistence
   # for the StatefulSet managed by the Operator.
