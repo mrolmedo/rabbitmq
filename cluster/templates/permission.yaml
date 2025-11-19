@@ -1,0 +1,22 @@
+apiVersion: rabbitmq.com/v1beta1
+kind: Permission
+metadata:
+  name: default-guest-permission
+  namespace: rabbitmq-system
+  annotations:
+    # 1. Hook Phase: Run after installation
+    "helm.sh/hook": "post-install, post-upgrade"
+    # 2. Hook Weight: Ensure this runs late (or in a specific order)
+    "helm.sh/hook-weight": "11"
+    "helm.sh/hook-delete-policy": before-hook-creation
+spec:
+  vhost: "/"
+  user: "guest"
+  # Set up the permissions for the 'guest' user
+  permissions:
+    configure: ".*"
+    write: ".*"
+    read: ".*"
+  rabbitmqCluster:
+    name: fleet-mq-cluster # Must match the cluster name above
+    namespace: rabbitmq-system
