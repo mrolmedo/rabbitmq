@@ -2,6 +2,10 @@
 defaultNamespace: rabbitmq-system
 dependsOn:
   - name: rabbitmq-topology
+  - selector:
+      matchLabels:
+        app: longhorn
+
   # Format:
   #     <GITREPO-NAME>-<BUNDLE_PATH> with all path separators replaced by "-"
   #
