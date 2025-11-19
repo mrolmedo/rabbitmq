@@ -4,6 +4,7 @@ metadata:
   name: appvhost
   namespace: rabbitmq-system
 spec:
+  name: appvhost
   # Reference the Cluster
     rabbitmqClusterReference:
       name: fleet-mq-cluster
