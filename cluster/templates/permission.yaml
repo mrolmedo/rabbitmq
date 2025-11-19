@@ -17,6 +17,6 @@ spec:
     configure: ".*"
     write: ".*"
     read: ".*"
-  rabbitmqCluster:
+  rabbitmqClusterReference:
     name: fleet-mq-cluster # Must match the cluster name above
     namespace: rabbitmq-system
