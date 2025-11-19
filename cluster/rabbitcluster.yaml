@@ -8,7 +8,10 @@ metadata:
 spec:
   # 1. Single Replica Configuration
   replicas: 1 
-  storage: 0
+  persistence:
+    # Set to 'true' to enable the creation of a PersistentVolumeClaim (PVC)
+    storageClassName: longhorn
+    storage: 1Gi
   # 2. No Storage/Persistence Configuration
   # The 'storage: 0Gi' value is used to explicitly disable persistence
   # for the StatefulSet managed by the Operator.
