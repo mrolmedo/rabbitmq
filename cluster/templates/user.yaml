@@ -20,4 +20,4 @@ spec:
   rabbitmqClusterReference:
     name: fleet-mq-cluster
     namespace: rabbitmq-cluster
-{{- end} }}
+{{- end }}
