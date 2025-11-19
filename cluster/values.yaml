@@ -1,0 +1,19 @@
+# values.yaml
+# ---
+
+# Variable to indicate if the necessary user/permissions already exist.
+# Set to 'true' if you want to skip creating the User/Permissions resource.
+# Your template logic: {{- if or (not .Values.existingPerm) ... }}
+existingPerm: false
+
+# Variable to indicate if the chart is being run with a specific Helm hook 
+# or if it has finished its configuration phase.
+# Set to 'true' if the hook has finished or is not needed.
+# Your template logic: {{- if or ... (not .Values.permHasHook) }}
+permHasHook: false
+
+# Other chart values would go here...
+# Example RabbitMQ configuration from a standard chart:
+# auth:
+#   username: fleet-user
+#   password: changeme
