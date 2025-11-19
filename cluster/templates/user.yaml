@@ -1,5 +1,5 @@
 # templates/02_rabbitmq-user.yaml
-{{- if or (not $existingPerm) (not$permHasHook)}}
+{{- if or (not .Values.existingPerm) (not .Values.permHasHook) }}
 apiVersion: rabbitmq.com/v1beta1
 kind: User
 metadata:
