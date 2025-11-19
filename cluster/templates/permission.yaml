@@ -18,5 +18,5 @@ spec:
     write: ".*"
     read: ".*"
   rabbitmqClusterReference:
-    name: fleet-mq-cluster # Must match the cluster name above
+    name:  {{ .Values.rabbitCluster }} # Must match the cluster name above
     namespace: rabbitmq-system
