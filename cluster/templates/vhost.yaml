@@ -1,0 +1,9 @@
+apiVersion: rabbitmq.com/v1beta1
+kind: Vhost
+metadata:
+  name: app-vhost
+  namespace: rabbitmq-system
+spec:
+  # Reference the Cluster
+  rabbitmqCluster:
+    name: fleet-mq-cluster
