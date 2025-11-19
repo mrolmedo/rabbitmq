@@ -6,5 +6,5 @@ metadata:
 spec:
   name: appvhost
   # Reference the Cluster
-    rabbitmqClusterReference:
-      name: fleet-mq-cluster
+  rabbitmqClusterReference:
+    name: fleet-mq-cluster
