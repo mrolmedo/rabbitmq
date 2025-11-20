@@ -1,5 +1,3 @@
-# templates/02_rabbitmq-user.yaml
-{{- if or (not .Values.existingPerm) (not .Values.permHasHook) }}
 apiVersion: rabbitmq.com/v1beta1
 kind: User
 metadata:
@@ -7,12 +5,11 @@ metadata:
   namespace: rabbitmq-system
   annotations:
     # 1. Hook Phase: Run after installation
-    "helm.sh/resource-policy": "keep"
-    "meta.helm.sh/release-name": rabbitmq-cluster
-    "meta.helm.sh/release-namespace": rabbitmq-system
+    "helm.sh/hook": "post-install, post-upgrade"
+    # 2. Hook Weight: Ensure this runs late (or in a specific order)
+    "helm.sh/hook-weight": "11"
+    "helm.sh/hook-delete-policy": before-hook-creation
   # The namespace will be overridden by the targetCustomizations setting: rabbitmq-app
-  labels: 
-    app.kubernetes.io/managed-by: Helm
 spec:
   tags:
     - administrator
@@ -21,5 +18,3 @@ spec:
   # Link this user to the cluster deployed above
   rabbitmqClusterReference:
     name: fleet-mq-cluster
-    namespace: rabbitmq-cluster
-{{- end }}
