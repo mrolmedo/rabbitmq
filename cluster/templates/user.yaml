@@ -21,5 +21,6 @@ spec:
   # Link this user to the cluster deployed above
   rabbitmqClusterReference:
     name: fleet-mq-cluster
-    namespace: rabbitmq-cluster
+    namespace: fleet-mq-cluster
+
 #{{- end }}
